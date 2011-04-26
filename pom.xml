@@ -1,0 +1,135 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.highlyrefined.xml</groupId>
+	<artifactId>schematron-maven-plugin</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<packaging>maven-plugin</packaging>
+
+	<name>Schematron Maven Plugin</name>
+	<url>http://maven.apache.org</url>
+
+	<licenses>
+		<license>
+			<name>Apache 2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+			<comments>A business-friendly OSS license</comments>
+		</license>
+	</licenses>
+
+	<!-- http://www.schematron.com/resources.html -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<junit.version>4.8.2</junit.version>
+		<maven-plugin-api.version>2.0</maven-plugin-api.version>
+		<maven-clean-plugin.version>2.4.1</maven-clean-plugin.version>
+		<maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
+		<maven-deploy-plugin.version>2.5</maven-deploy-plugin.version>
+		<maven-install-plugin.version>2.3.1</maven-install-plugin.version>
+		<maven-jar-plugin.version>2.3.1</maven-jar-plugin.version>
+		<maven-plugin-plugin.version>2.7</maven-plugin-plugin.version>
+		<maven-release-plugin.version>2.1</maven-release-plugin.version>
+		<maven-resources-plugin.version>2.5</maven-resources-plugin.version>
+		<maven-site-plugin.version>2.2</maven-site-plugin.version>
+		<maven-surefire-plugin.version>2.8.1</maven-surefire-plugin.version>
+	</properties>
+
+	<scm>
+		<connection>scm:git:git://github.com/minusthetiger/schematron-maven-plugin.git</connection>
+		<url>scm:git:git://github.com/minusthetiger/schematron-maven-plugin.git</url>
+		<developerConnection>scm:git:git://github.com/minusthetiger/schematron-maven-plugin.git</developerConnection>
+	</scm>
+
+	<distributionManagement>
+		<site>
+			<id>gh-pages</id>
+			<!-- This gets automatically pushed to the gh-pages branch. -->
+			<url>file:${project.basedir}/site</url>
+		</site>
+	</distributionManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-plugin-api</artifactId>
+			<version>${maven-plugin-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-plugin-plugin</artifactId>
+				<version>${maven-plugin-plugin.version}</version>
+				<configuration>
+					<goalPrefix>schematron</goalPrefix>
+				</configuration>
+				<executions>
+					<execution>
+						<id>generated-helpmojo</id>
+						<goals>
+							<goal>helpmojo</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>${maven-clean-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>${maven-deploy-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>${maven-install-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven-jar-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>${maven-release-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${maven-resources-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>${maven-site-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>${maven-release-plugin.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>
