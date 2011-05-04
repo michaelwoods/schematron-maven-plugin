@@ -1,2 +1,16 @@
 This is a project for utilizing the ISO Schematron standard within a 
 maven plugin.
+
+
+
+
+Site deployment:
+mvn site-deploy
+(
+	cd site
+	git add .
+	git commit -a -m 'Generate site.'
+	git push origin gh-pages
+)
+
+

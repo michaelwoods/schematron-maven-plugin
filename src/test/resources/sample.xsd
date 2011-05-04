@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://highlyrefined.com/xml/sample" targetNamespace="http://highlyrefined.com/xml/sample">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://highlyrefined.com/xml/sample"
+	targetNamespace="http://highlyrefined.com/xml/sample">
 	<xsd:simpleType name="simpleString">
+		<xsd:restriction base="xsd:string" />
 	</xsd:simpleType>
 	<xsd:simpleType name="simpleDouble">
+		<xsd:restriction base="xsd:double" />
 	</xsd:simpleType>
 	<xsd:complexType name="complexString">
+		<xsd:simpleContent>
+			<xsd:extension base="simpleString" />
+		</xsd:simpleContent>
 	</xsd:complexType>
 	<xsd:complexType name="complexDouble">
+		<xsd:simpleContent>
+			<xsd:extension base="simpleDouble" />
+		</xsd:simpleContent>
 	</xsd:complexType>
-	<!-- Make an integer list and double list -->
-	<xsd:element name="string" type="complexString"/>
+	<!-- TODO Make an integer list and double list -->
+	<xsd:element name="string" type="complexString" />
+	<xsd:element name="double" type="complexDouble" />
 </xsd:schema>
